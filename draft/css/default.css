@@ -1,0 +1,50 @@
+body {
+	color: #eeeeee;
+	background: #000000;
+}
+
+.base-layer {
+	background-image: url(../img/bg1.png);
+	background-repeat: no-repeat;
+	background-position: 0px 50px;
+	min-height: 768px;
+}
+
+.logo {
+	margin: 30px;
+}
+
+.chatroom {
+	height: 400px;
+	padding: 10px;
+}
+
+.chatroom .conversation {
+	background: #000000;
+	opacity: 0.7;
+	height: 380px;
+	padding: 10px;
+}
+
+.chatroom .control-panel {
+	margin-top: 5px;
+}
+
+.chatroom .control-panel span {
+	color: #000000;
+}
+
+.chatroom .conversation .nickname1 {
+	font-weight: bold;
+	color: orange;
+}
+
+.chatroom .conversation .nickname2 {
+	font-weight: bold;
+	color: #55aaff;
+}
+
+.chatroom .conversation .nickname3 {
+	font-weight: bold;
+	color: #ff5566;
+}

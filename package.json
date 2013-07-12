@@ -1,0 +1,25 @@
+{
+  "name": "model-today-website",
+  "version": "0.0.1",
+  "description": "Model Today website",
+  "keywords": [
+    "web",
+    "framework"
+  ],
+  "author": {
+    "name": "Fred Chien(錢逢祥)",
+    "email": "fred@mandice.com",
+    "web": "http://fred-zone.blogspot.com/"
+  },
+  "license": "MIT",
+  "directories": {
+    "tests": "lib"
+  },
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "dependencies": {
+    "frex.js": ">= 0.0.6"
+  },
+  "main": "./app.js"
+}
