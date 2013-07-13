@@ -10,7 +10,7 @@ App.require('WishBoard', function() {
 			.replace(/>/g, "&gt;")
 			.replace(/"/g, "&quot;")
 			.replace(/'/g, "&#039;")
-			.replace(/\n/, '<br>');
+			.replace(/\n/g, '<br>');
 	}
 
 	function appendMessage(msg) {
@@ -20,7 +20,7 @@ App.require('WishBoard', function() {
 		var $wish = $('<div>').addClass('post').hide();
 		var $header = $('<div>');
 		var $name = $('<span>').addClass('name').text(msg.name);
-		var $created = $('<span>').addClass('created').text(d.getDate() + '-' + (d.getMonth() + 1) + '-' + d.getFullYear());
+		var $created = $('<span>').addClass('created').text(d.getDate() + '-' + (d.getMonth() + 1) + '-' + d.getFullYear() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds());
 		var $message = $('<div>').addClass('message').html(escapeHTML(msg.msg));
 
 		$header.append($name).append($created);
@@ -38,7 +38,7 @@ App.require('WishBoard', function() {
 		var $wish = $('<div>').addClass('post').hide();
 		var $header = $('<div>');
 		var $name = $('<span>').addClass('name').text(msg.name);
-		var $created = $('<span>').addClass('created').text(d.getDate() + '-' + (d.getMonth() + 1) + '-' + d.getFullYear());
+		var $created = $('<span>').addClass('created').text(d.getDate() + '-' + (d.getMonth() + 1) + '-' + d.getFullYear() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds());
 		var $message = $('<div>').addClass('message').html(escapeHTML(msg.msg));
 
 		$header.append($name).append($created);
@@ -72,7 +72,7 @@ App.require('WishBoard', function() {
 			});
 
 			wishBoard.messageCount(function(err, num) {
-				$('#wishboard_count').text(num + ' friends have left a message for Pei');
+				$('#wishboard_count').text(num + ' fans have left a message for Pei');
 			});
 		});
 
@@ -90,7 +90,7 @@ App.require('WishBoard', function() {
 	});
 
 	wishBoard.messageCount(function(err, num) {
-		$('#wishboard_count').text(num + ' friends have left a message for Pei');
+		$('#wishboard_count').text(num + ' fans have left a message for Pei');
 	});
 });
 

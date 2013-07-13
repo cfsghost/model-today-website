@@ -1,0 +1,34 @@
+html
+	head
+		meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+		title Model Today Chatroom
+		meta(name='viewport', content='width=device-width, initial-scale=1.0')
+		link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Alex+Brush', type='text/css')
+		link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Berkshire+Swash', type='text/css')
+		link(href='/css/bootstrap.min.css', media='all', rel='stylesheet', type='text/css')
+		link(href='/css/default.css', media='all', rel='stylesheet', type='text/css')
+		script(type='text/javascript', src='/js/jquery-1.10.2.min.js')
+		script(type='text/javascript', src='/js/jquery-ui.min.js')
+		script(type='text/javascript', src='/js/bootstrap.min.js')
+		script(type='text/javascript', src='/js/eventemitter.js')
+		script(type='text/javascript', src='/frex')
+		script(type='text/javascript', src='/js/chat.js')
+
+	body
+
+		div.container.base-layer
+
+
+			div.row-fluid
+
+					img.span4.logo(src='img/logo.png')
+
+			div.row-fluid
+
+
+				div.container-fluid
+
+					div.row-fluid
+
+						iframe#chat_embed.chatroom(frameborder='0', scrolling='no', src='http://twitch.tv/chat/embed?channel=peishin714&popout_chat=true', width='870', height='700')
+

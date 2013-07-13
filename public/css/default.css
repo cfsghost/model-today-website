@@ -7,7 +7,7 @@ body {
 	background-image: url(../img/bg1.png);
 	background-repeat: no-repeat;
 	background-position: 0px 100px;
-	min-height: 768px;
+	min-height: 868px;
 }
 
 .logo {
@@ -31,6 +31,9 @@ body {
 }
 
 .wish-board {
+	border-top: 1px solid #111111;
+	border-left: 1px solid #111111;
+	border-right: 1px solid #050505;
 	font-family: 'Berkshire Swash';
 	background: url(../img/wishboard-bg1.png);
 }
@@ -85,7 +88,8 @@ body {
 }
 
 .chatroom {
-	height: 400px;
+	opacity: 0.8;
+	height: 500px;
 	padding: 10px;
 }
 
