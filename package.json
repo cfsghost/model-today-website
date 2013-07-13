@@ -19,7 +19,8 @@
     "node": ">= 0.8.0"
   },
   "dependencies": {
-    "frex.js": ">= 0.0.6"
+    "frex.js": ">= 0.0.6",
+	"dbhouse": ">= 0.0.24"
   },
   "main": "./app.js"
 }

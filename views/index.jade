@@ -1,0 +1,59 @@
+html
+	head
+		meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+		title Model Today
+		meta(name='viewport', content='width=device-width, initial-scale=1.0')
+		link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Alex+Brush', type='text/css')
+		link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Berkshire+Swash', type='text/css')
+		link(href='/css/bootstrap.min.css', media='all', rel='stylesheet', type='text/css')
+		link(href='/css/default.css', media='all', rel='stylesheet', type='text/css')
+		script(type='text/javascript', src='/js/jquery-1.10.2.min.js')
+		script(type='text/javascript', src='/js/jquery-ui.min.js')
+		script(type='text/javascript', src='/js/bootstrap.min.js')
+		script(type='text/javascript', src='/js/eventemitter.js')
+		script(type='text/javascript', src='/frex')
+		script(type='text/javascript', src='/js/index.js')
+
+	body
+
+		div.container.base-layer
+
+			div.row-fluid
+				img.offset4.span4.logo(src='img/logo.png')
+
+			div.row-fluid
+
+				div.container-fluid
+
+					div#photo_slider(style='position: relative; height: 500px;')
+
+				div.celebrate_message(style='text-align: center;')
+					span(style='font-size: 30px;') July 14. 
+					span(style='font-size: 30px;') Happy Birthday to Pei !
+
+		div.container.wish-board
+
+			div.row-fluid
+
+				div.wish-board-title(style='text-align: center;') Wish Board
+
+			div.row-fluid
+
+				div.offset1
+
+					img#submitMsg(src='img/wish.png', style='cursor: pointer; padding-right: 100px; padding-top: 80px;', align='right')
+
+					div Post message to wish for Pei right now!
+
+					div
+						input#name.span7(type='text', placeholder='Your Name')
+
+					div
+						textarea#message.span7(placeholder='Leave your message here', style='height: 200px;')
+
+
+			div.row-fluid
+
+				div#wishboard_count.count(style='text-align: center;')
+
+				div#wishboard_messages.messages.offset1.span10

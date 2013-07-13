@@ -1,0 +1,120 @@
+body {
+	color: #eeeeee;
+	background: #000000;
+}
+
+.base-layer {
+	background-image: url(../img/bg1.png);
+	background-repeat: no-repeat;
+	background-position: 0px 100px;
+	min-height: 768px;
+}
+
+.logo {
+	margin-top: 34px;
+	margin-bottom: 20px;
+
+	text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
+}
+
+.photo {
+	-webkit-box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.5);
+	box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.5);
+}
+
+.celebrate_message {
+	padding: 20px;
+	font-family: 'Alex Brush';
+	color: #de0768;
+	text-shadow: 0px 3px 7px rgba(0, 0, 0, 0.9);
+}
+
+.wish-board {
+	font-family: 'Berkshire Swash';
+	background: url(../img/wishboard-bg1.png);
+}
+
+.wish-board .count {
+	padding: 20px;
+	font-size: 24px;
+}
+
+.wish-board input, .wish-board textarea {
+	background: #111111;
+	border: 1px solid #222222;
+	color: #eeeeee;
+}
+
+.wish-board input:-webkit-input-placeholder, .wish-board input:-moz-placeholder {
+    color: red;
+}
+
+.wish-board .messages {
+	padding-top: 20px;
+}
+
+.wish-board-title {
+	font-size: 30px;
+	padding: 30px;
+	color: #aaaaaa;
+}
+
+.wish-board .post {
+	margin: 10px;
+	padding: 10px;
+	background: rgba(0, 0, 0, 0.2);
+
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+
+.wish-board .post .name {
+	color: #55ddff;
+}
+
+.wish-board .post .created {
+	margin-left: 10px;
+	color: #333333;
+}
+
+.wish-board .post .message {
+	color: #887777;
+	padding: 10px;
+}
+
+.chatroom {
+	height: 400px;
+	padding: 10px;
+}
+
+.chatroom .conversation {
+	background: #000000;
+	opacity: 0.7;
+	height: 380px;
+	padding: 10px;
+}
+
+.chatroom .control-panel {
+	margin-top: 5px;
+}
+
+.chatroom .control-panel span {
+	color: #000000;
+}
+
+.chatroom .conversation .nickname1 {
+	font-weight: bold;
+	color: orange;
+}
+
+.chatroom .conversation .nickname2 {
+	font-weight: bold;
+	color: #55aaff;
+}
+
+.chatroom .conversation .nickname3 {
+	font-weight: bold;
+	color: #ff5566;
+}
