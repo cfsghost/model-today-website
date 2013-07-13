@@ -81,6 +81,7 @@ App.require('WishBoard', function() {
 	});
 
 	wishBoard.getWishMsg(0, 50, function(err, msgs) {
+
 		for (var index in msgs) {
 			var msg = msgs[index];
 
@@ -90,6 +91,7 @@ App.require('WishBoard', function() {
 	});
 
 	wishBoard.messageCount(function(err, num) {
+
 		$('#wishboard_count').text(num + ' fans have left a message for Pei');
 	});
 });
@@ -116,7 +118,7 @@ $(function() {
 		sliderState = 'loading';
 
 		var $photo = $('<div>')
-			.addClass('offset1 span10 photo')
+			.addClass('span10 photo')
 			.css({
 				'position': 'absolute',
 				'left': 0,
@@ -126,6 +128,7 @@ $(function() {
 			.hide();
 
 		var $img =  $('<img>')
+			.addClass('image')
 			.attr('src', '/img/photo/' + photoURLs[id])
 			.on('load', function() {
 

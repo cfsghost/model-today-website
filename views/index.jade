@@ -16,42 +16,44 @@ html
 
 	body
 
-		div.container.base-layer
+		div.container-fluid.base-layer
 
-			div.row-fluid
-				a(href='/')
-					img.span4.logo(src='img/logo.png')
+			div.container
 
-			div.row-fluid
+				div.row
+					a(href='/')
+						img.span4.logo(src='img/logo.png', style='z-index: 1000;')
 
-				div.container-fluid(style='position: relative; top: 30px;')
+				div.row
 
-					div#photo_slider(style='position: relative; height: 500px;')
-					div.sign.offset9(style='position: relative; top: -70px;') Pei.
+					div.container-fluid(style='position: relative; top: 10px;')
 
-				div.celebrate_message(style='text-align: right; position: relative; top: 10px;')
-					span(style='font-size: 40px;') July 14. 
-					span(style='font-size: 30px;') Happy Birthday to Pei !
+						div#photo_slider(style='position: relative; height: 500px;')
+						div.sign.offset9(style='position: relative; top: -50px;') Pei.
+
+					div.celebrate_message(style='text-align: right; position: relative; top: 10px;')
+						span(style='font-size: 40px;') July 14. 
+						span(style='font-size: 30px;') Happy Birthday to Pei !
 
 		div.container.wish-board
 
-			div.row-fluid
+			div.row
 
 				div.wish-board-title(style='text-align: center;') Wish Board
 
-			div.row-fluid
+			div.row
 
 				div.offset1
 
 					div Leave message to wish for Pei right now!
 
 					div
-						input#name.span11(type='text', placeholder='Your Name')
+						input#name.span10(type='text', placeholder='Your Name')
 
 					div
-						textarea#message.span11(placeholder='Leave your message here', style='height: 200px;')
+						textarea#message.span10(placeholder='Leave your message here', style='height: 200px;')
 
-					img#submitMsg.offset8.span3(src='img/wish.png', style='cursor: pointer;', align='right')
+					img#submitMsg.offset8.span2(src='img/wish.png', style='cursor: pointer;', align='right')
 
 			br
 			br
@@ -60,7 +62,7 @@ html
 
 		div.container.wish-board
 
-			div.row-fluid
+			div.row
 
 				div#wishboard_count.count(style='text-align: center;')
 

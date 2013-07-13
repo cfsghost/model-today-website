@@ -6,19 +6,28 @@ body {
 .base-layer {
 	background-image: url(../img/bg1.png);
 	background-repeat: no-repeat;
-	background-position: 0px 100px;
+	background-position: center center;
 	min-height: 868px;
 }
 
 .logo {
+	position: relative;
 	margin-top: 6px;
 	margin-bottom: 20px;
+	top: 1px;
+	left: -25px;
 }
 
 .photo {
 	-webkit-box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.5);
 	-moz-box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.5);
 	box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.5);
+}
+
+.photo .image {
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
 }
 
 .sign {
@@ -45,15 +54,21 @@ body {
 	border-radius: 10px;
 }
 
-.wish-board .count {
-	padding: 50px;
-	font-size: 24px;
-}
-
 .wish-board input, .wish-board textarea {
 	background: #111111;
 	border: 1px solid #222222;
 	color: #eeeeee;
+	padding: 5px;
+}
+
+.wish-board input {
+	padding: 15px;
+	padding-left: 5px;
+}
+
+.wish-board .count {
+	padding: 50px;
+	font-size: 24px;
 }
 
 .wish-board .messages {
@@ -67,7 +82,7 @@ body {
 }
 
 .wish-board .post {
-	margin: 10px;
+	margin-bottom: 10px;
 	padding: 10px;
 	background: rgba(0, 0, 0, 0.5);
 
