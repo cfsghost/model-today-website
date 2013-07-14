@@ -178,15 +178,17 @@ $(function() {
 				'left': 0,
 				'margin-left': 0,
 				'top': 0,
-				'width': '100%'
+				'width': '100%',
+				'height': '90%'
 			})
 			.hide();
 
 		var $img =  $('<img>')
 			.addClass('image')
 			.css({
+				'margin': 'auto',
 				'margin-left': 0,
-				'height': '90%'
+				'width': '100%'
 			})
 			.attr('src', '/img/photo/' + photoURLs[id])
 			.on('load', function() {

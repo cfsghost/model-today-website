@@ -22,7 +22,7 @@ html
 
 			div.container-fluid(style='position: relative; top: 10px;')
 
-				div.row-fluid.offset1.span4
+				div.row-fluid.span4
 
 					a(href='/')
 						img.span3.logo(src='img/logo.png', style='z-index: 1000;')
@@ -65,42 +65,46 @@ html
 
 					div#photo_slider.photo-slider.span12
 
-					div.sign(style='position: absolute; top: 80%; right: 10%;') Pei.
+					div.sign(style='position: absolute; top: 75%; right: 10%;') Pei.
 
-					div#photo-slider-skipbtn.hide(style='position: absolute; top: 80%; width: 100%; text-align: center;')
+					div#photo-slider-skipbtn.hide(style='position: absolute; bottom: 62px; width: 100%; text-align: center;')
 
 						span.button Go to Wish Board
 			
 
-		div.container.wish-board
+		div.container-fluid
 
-			div.row
+			div.container-fluid.wish-board
 
-				div.wish-board-title(style='text-align: center;') Wish Board
+				div.row-fluid
 
-			div.row
+					div.wish-board-title(style='text-align: center;') Wish Board
 
-				div.offset1
-
-					div Leave message to wish for Pei right now!
+				div.row-fluid
 
 					div
-						input#name.span10(type='text', placeholder='Your Name')
 
-					div
-						textarea#message.span10(placeholder='Leave your message here', style='height: 200px;')
+						div Leave message to wish for Pei right now!
 
-					img#submitMsg.offset8.span2(src='img/wish.png', style='cursor: pointer;', align='right')
+						div
+							input#name.span12(type='text', placeholder='Your Name')
+
+						div
+							textarea#message.span12(placeholder='Leave your message here', style='height: 200px;')
+
+						img#submitMsg.offset10.span2(src='img/wish.png', style='cursor: pointer;', align='right')
+
+				br
+				br
 
 			br
-			br
 
-		br
+		div.container-fluid
 
-		div.container.wish-board
+			div.container-fluid.wish-board
 
-			div.row
+				div.row-fluid
 
-				div#wishboard_count.count(style='text-align: center;')
+					div#wishboard_count.count(style='text-align: center;')
 
-				div#wishboard_messages.messages.offset1.span10
+					div#wishboard_messages.messages
