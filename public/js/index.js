@@ -1,100 +1,4 @@
 
-// Example
-App.require('WishBoard', function() {
-	var wishBoard = App.Engine('WishBoard');
-
-	function escapeHTML(msg) {
-		return msg
-			.replace(/&/g, "&amp;")
-			.replace(/</g, "&lt;")
-			.replace(/>/g, "&gt;")
-			.replace(/"/g, "&quot;")
-			.replace(/'/g, "&#039;")
-			.replace(/\n/g, '<br>');
-	}
-
-	function appendMessage(msg) {
-
-		var d = new Date(msg.created);
-
-		var $wish = $('<div>').addClass('post').hide();
-		var $header = $('<div>');
-		var $name = $('<span>').addClass('name').text(msg.name);
-		var $created = $('<span>').addClass('created').text(d.getDate() + '-' + (d.getMonth() + 1) + '-' + d.getFullYear() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds());
-		var $message = $('<div>').addClass('message').html(escapeHTML(msg.msg));
-
-		$header.append($name).append($created);
-		$wish.append($header).append($message);
-
-		$('#wishboard_messages').append($wish);
-
-		return $wish;
-	}
-
-	function prependMessage(msg) {
-
-		var d = new Date(msg.created);
-
-		var $wish = $('<div>').addClass('post').hide();
-		var $header = $('<div>');
-		var $name = $('<span>').addClass('name').text(msg.name);
-		var $created = $('<span>').addClass('created').text(d.getDate() + '-' + (d.getMonth() + 1) + '-' + d.getFullYear() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds());
-		var $message = $('<div>').addClass('message').html(escapeHTML(msg.msg));
-
-		$header.append($name).append($created);
-		$wish.append($header).append($message);
-
-		$('#wishboard_messages').prepend($wish);
-
-		return $wish;
-	}
-
-	$('#submitMsg').on('click', function() {
-		if ($('#name').val() == '' || $('#message').val() == '') {
-			return;
-		}
-
-		wishBoard.wish({
-			name: $('#name').val(),
-			msg: $('#message').val()
-		}, function(err, msg) {
-
-			if (err)
-				return;
-
-			var $wish = prependMessage(msg);
-
-			$('body').animate({
-				scrollTop: 780
-			}, function() {
-
-				$wish.fadeIn();
-			});
-
-			wishBoard.messageCount(function(err, num) {
-				$('#wishboard_count').text(num + ' fans have left a message for Pei');
-			});
-		});
-
-		$('#name').val('');
-		$('#message').val('');
-	});
-
-	wishBoard.getWishMsg(0, 50, function(err, msgs) {
-
-		for (var index in msgs) {
-			var msg = msgs[index];
-
-			var $wish = appendMessage(msg);
-			$wish.show();
-		}
-	});
-
-	wishBoard.messageCount(function(err, num) {
-
-		$('#wishboard_count').text(num + ' fans have left a message for Pei');
-	});
-});
 
 $(function() {
 
@@ -247,6 +151,105 @@ $(function() {
 		hideTimer = setTimeout(function() {
 			$('#photo-slider-skipbtn').stop(true, true).fadeOut();
 		}, 2000);
+	});
+
+	// Communicate with server
+	App.require('WishBoard', function() {
+		var wishBoard = App.Engine('WishBoard');
+
+		function escapeHTML(msg) {
+			return msg
+				.replace(/&/g, "&amp;")
+				.replace(/</g, "&lt;")
+				.replace(/>/g, "&gt;")
+				.replace(/"/g, "&quot;")
+				.replace(/'/g, "&#039;")
+				.replace(/\n/g, '<br>');
+		}
+
+		function appendMessage(msg) {
+
+			var d = new Date(msg.created);
+
+			var $wish = $('<div>').addClass('post').hide();
+			var $header = $('<div>');
+			var $name = $('<span>').addClass('name').text(msg.name);
+			var $created = $('<span>').addClass('created').text(d.getDate() + '-' + (d.getMonth() + 1) + '-' + d.getFullYear() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds());
+			var $message = $('<div>').addClass('message').html(escapeHTML(msg.msg));
+
+			$header.append($name).append($created);
+			$wish.append($header).append($message);
+
+			$('#wishboard_messages').append($wish);
+
+			return $wish;
+		}
+
+		function prependMessage(msg) {
+
+			var d = new Date(msg.created);
+
+			var $wish = $('<div>').addClass('post').hide();
+			var $header = $('<div>');
+			var $name = $('<span>').addClass('name').text(msg.name);
+			var $created = $('<span>').addClass('created').text(d.getDate() + '-' + (d.getMonth() + 1) + '-' + d.getFullYear() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds());
+			var $message = $('<div>').addClass('message').html(escapeHTML(msg.msg));
+
+			$header.append($name).append($created);
+			$wish.append($header).append($message);
+
+			$('#wishboard_messages').prepend($wish);
+
+			return $wish;
+		}
+
+		$('#submitMsg').on('click', function() {
+			skipCover = true;
+
+			if ($('#name').val() == '' || $('#message').val() == '') {
+				return;
+			}
+
+			wishBoard.wish({
+				name: $('#name').val(),
+				msg: $('#message').val()
+			}, function(err, msg) {
+
+				if (err)
+					return;
+
+				var $wish = prependMessage(msg);
+
+				$('body').animate({
+					scrollTop: $('#cover').outerHeight() + $('#photo-slider-layer').outerHeight(),
+				}, 1000, 'easeOutCubic', function() {
+
+					$wish.fadeIn();
+				});
+
+				wishBoard.messageCount(function(err, num) {
+					$('#wishboard_count').text(num + ' fans have left a message for Pei');
+				});
+			});
+
+			$('#name').val('');
+			$('#message').val('');
+		});
+
+		wishBoard.getWishMsg(0, 50, function(err, msgs) {
+
+			for (var index in msgs) {
+				var msg = msgs[index];
+
+				var $wish = appendMessage(msg);
+				$wish.show();
+			}
+		});
+
+		wishBoard.messageCount(function(err, num) {
+
+			$('#wishboard_count').text(num + ' fans have left a message for Pei');
+		});
 	});
 
 });
