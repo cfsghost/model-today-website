@@ -92,7 +92,8 @@ $(function() {
 			.css({
 				'margin': 'auto',
 				'margin-left': 0,
-				'width': '100%'
+				'width': '100%',
+				'max-height': '95%'
 			})
 			.attr('src', '/img/photo/' + photoURLs[id])
 			.on('load', function() {
