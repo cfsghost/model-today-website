@@ -98,6 +98,59 @@ App.require('WishBoard', function() {
 
 $(function() {
 
+	var skipCover = false;
+	function switchToPhotoSlider() {
+		sliderPlay();
+
+		$('body').animate({
+			scrollTop: $('#cover').outerHeight(),
+		}, 1000, 'easeOutCubic');
+	}
+
+	function switchToWishboard() {
+		$('body').animate({
+			scrollTop: $('#cover').outerHeight() + $('#photo-slider-layer').outerHeight(),
+		}, 1000, 'easeOutCubic');
+	}
+
+	function showCoverSubtitle(target, end, callback) {
+
+		$('#cover-subtitle' + target).fadeIn(3000, function() {
+
+			if (target == end) {
+				callback();
+				return;
+			}
+
+			setTimeout(function() {
+
+				$('#cover-subtitle' + target).fadeOut(1500, function() {
+					showCoverSubtitle(target + 1, end, callback);
+				});
+			}, 3000);
+		});
+	}
+
+	showCoverSubtitle(1, 3, function() {
+
+		if (!skipCover) {
+			setTimeout(function() {
+				switchToPhotoSlider();
+			}, 1500);
+		}
+	});
+
+	$('#cover-skipbtn').on('click', function() {
+		skipCover = true;
+		switchToPhotoSlider();
+	});
+
+	$('#photo-slider-skipbtn').on('click', function() {
+		skipCover = true;
+		switchToWishboard();
+	});
+	
+
 	var photoURLs = [
 		'IMG_0171.jpg',
 		'IMG_1175.jpg',
@@ -111,6 +164,7 @@ $(function() {
 	];
 
 	var $curPhoto = null;
+	var sliderRunning = false;
 	var sliderState = 'ready';
 
 	function switchPhoto(id) {
@@ -118,17 +172,22 @@ $(function() {
 		sliderState = 'loading';
 
 		var $photo = $('<div>')
-			.addClass('span10 photo')
+			.addClass('photo')
 			.css({
 				'position': 'absolute',
 				'left': 0,
-				'margin-left': 75,
-				'top': 0
+				'margin-left': 0,
+				'top': 0,
+				'width': '100%'
 			})
 			.hide();
 
 		var $img =  $('<img>')
 			.addClass('image')
+			.css({
+				'margin-left': 0,
+				'height': '90%'
+			})
 			.attr('src', '/img/photo/' + photoURLs[id])
 			.on('load', function() {
 
@@ -154,18 +213,38 @@ $(function() {
 		$('#photo_slider').append($photo);
 	}
 
-	var current = 1;
-	switchPhoto(0);
-	setInterval(function() {
-		if (sliderState != 'ready')
+	function sliderPlay() {
+
+		if (sliderRunning)
 			return;
 
-		if (current == photoURLs.length)
-			current = 0;
+		sliderRunning = true;
 
-		switchPhoto(current);
+		var current = 1;
+		switchPhoto(0);
+		setInterval(function() {
+			if (sliderState != 'ready')
+				return;
 
-		current++;
-	}, 10000);
+			if (current == photoURLs.length)
+				current = 0;
+
+			switchPhoto(current);
+
+			current++;
+		}, 10000);
+	}
+
+	sliderPlay();
+
+	var hideTimer = null;
+	$('#photo_slider').on('mouseover mousemove', function() {
+		$('#photo-slider-skipbtn').stop(true, true).fadeIn();
+
+		clearTimeout(hideTimer);
+		hideTimer = setTimeout(function() {
+			$('#photo-slider-skipbtn').stop(true, true).fadeOut();
+		}, 2000);
+	});
 
 });

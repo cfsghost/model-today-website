@@ -5,7 +5,9 @@ html
 		meta(name='viewport', content='width=device-width, initial-scale=1.0')
 		link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Alex+Brush', type='text/css')
 		link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Berkshire+Swash', type='text/css')
+		link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Poiret+One', type='text/css')
 		link(href='/css/bootstrap.min.css', media='all', rel='stylesheet', type='text/css')
+		link(href='/css/bootstrap-responsive.min.css', media='all', rel='stylesheet', type='text/css')
 		link(href='/css/default.css', media='all', rel='stylesheet', type='text/css')
 		script(type='text/javascript', src='/js/jquery-1.10.2.min.js')
 		script(type='text/javascript', src='/js/jquery-ui.min.js')
@@ -16,24 +18,59 @@ html
 
 	body
 
-		div.container-fluid.base-layer
+		div#cover.container-fluid.base-layer.cover
 
-			div.container
+			div.container-fluid(style='position: relative; top: 10px;')
 
-				div.row
+				div.row.offset1.span4
+
 					a(href='/')
-						img.span4.logo(src='img/logo.png', style='z-index: 1000;')
+						img.span3.logo(src='img/logo.png', style='z-index: 1000;')
 
-				div.row
+			div#cover-subtitle1.container-fluid.hide(style='position: relative; top: 30%;')
 
-					div.container-fluid(style='position: relative; top: 10px;')
+				div.row-fluid.span4.text(style='text-align: center;')
 
-						div#photo_slider(style='position: relative; height: 500px;')
-						div.sign.offset9(style='position: relative; top: -50px;') Pei.
+						div July 14
 
-					div.celebrate_message(style='text-align: right; position: relative; top: 10px;')
-						span(style='font-size: 40px;') July 14. 
-						span(style='font-size: 30px;') Happy Birthday to Pei !
+						div.comment Special Day
+
+			div#cover-subtitle2.container-fluid.hide(style='position: relative; top: 30%;')
+
+				div.row-fluid.span4.text(style='text-align: center;')
+
+						div A Beautiful Creature was Born
+
+						div.comment This day belongs to her forever
+
+			div#cover-subtitle3.container-fluid.hide(style='position: relative; top: 30%;')
+
+				div.row-fluid.span4.text(style='text-align: center;')
+
+						div Pei.
+
+						div.comment Wishing you a wonderful birthday
+
+			div.container-fluid(style='position: relative; top: 60%;')
+
+				div.row-fluid.span4.text(style='text-align: center;')
+					span#cover-skipbtn.button skip
+			
+
+		div#photo-slider-layer.container-fluid.photo-slider-layer
+
+			div.row-fluid(style='position: relative; top: 5%;')
+
+				div.container-fluid(style='position: relative; height: 100%;')
+
+					div#photo_slider.photo-slider.span12
+
+					div.sign(style='position: absolute; top: 80%; right: 10%;') Pei.
+
+					div#photo-slider-skipbtn.hide(style='position: absolute; top: 80%; width: 100%; text-align: center;')
+
+						span.button Go to Wish Board
+			
 
 		div.container.wish-board
 
