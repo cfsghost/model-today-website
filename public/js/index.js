@@ -37,7 +37,7 @@ $(function() {
 
 	showCoverSubtitle(1, 3, function() {
 
-		if (!skipCover) {
+		if (!skipCover || $('body').scrollTop() < $('#cover').outerHeight()) {
 			setTimeout(function() {
 				switchToPhotoSlider();
 			}, 1500);
@@ -151,6 +151,10 @@ $(function() {
 		hideTimer = setTimeout(function() {
 			$('#photo-slider-skipbtn').stop(true, true).fadeOut();
 		}, 2000);
+	});
+
+	$(window).scroll(function(event) {
+		skipCover = true;
 	});
 
 	// Communicate with server
